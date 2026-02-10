@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import {  useState, useContext, useEffect } from "react";
 
 import { MovieContext } from "./MovieContextA.jsx";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {

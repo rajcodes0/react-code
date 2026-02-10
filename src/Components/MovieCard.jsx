@@ -7,10 +7,11 @@ function MovieCard({ movie }) {
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
   const {isFavourites,addtoFavourites,removeFavourites}= useMovieContext()
 
-  const Favourites = isFavourites(movie.id)
+  const favourite = isFavourites(movie.id)
   function onFavouriteClick(e) {
     e.preventDefault();
-    if(favourite,removeFavourites) =
+    if(favourite)removeFavourites(movie.id)
+      else addtoFavourites(movie)
 
    
   }
@@ -26,7 +27,10 @@ function MovieCard({ movie }) {
           alt={movie.title}
         />
         <div className="movie-overlay">
-          <button className={`favorite-btn` ${favourite ? "active" : ""} onClick={onFavouriteClick}>
+          <button className={`favorite-btn 
+          ${favourite ? "active" : ""}`
+        } 
+          onClick={onFavouriteClick}>
             ❤️
           </button>
         </div>
